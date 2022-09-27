@@ -202,7 +202,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2022 &#8226; SHOP APP &#8226; <a href="https://github.com/Evg127java">My GitHub</a> &#8226;</strong>
+        <strong>Copyright &copy; 2022{{ now()->year === 2022 ? '' : '-' . now()->year }} &#8226; SHOP APP &#8226; <a href="https://github.com/Evg127java">My GitHub</a> &#8226;</strong>
         All rights reserved.
     </footer>
 
