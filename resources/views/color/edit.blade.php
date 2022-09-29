@@ -6,12 +6,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Colors</h1>
+                    <h1 class="m-0">Color editing</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('main.index') }}">Admin home</a></li>
-                        <li class="breadcrumb-item active">Colors</li>
+                        <li class="breadcrumb-item active">Color editing</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -30,7 +30,7 @@
                     @error('title')
                     <div class="text-danger">{{$message}}</div>
                     @enderror
-                    <input type="submit" value="Create" class="btn btn-primary mt-2">
+                    <input type="submit" value="Update" class="btn btn-primary mt-2">
                 </form>
             </div>
             <!-- /.row (main row) -->
