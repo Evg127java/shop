@@ -7,6 +7,8 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('adminLte/plugins/select2/css/select2.min.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('adminLte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
@@ -158,7 +160,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="@{{ route('product.index') }}" class="nav-link">
+                        <a href="{{ route('product.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-tshirt"></i>
                             <p>Products</p>
                         </a>
@@ -228,5 +230,13 @@
 <script src="{{ asset('adminLte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminLte/dist/js/adminlte.js') }}"></script>
+<!-- Select2 -->
+<script src="{{ asset('adminLte/plugins/select2/js/select2.full.min.js') }}"></script>
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+    })
+</script>
 </body>
 </html>
