@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <select class="select2" multiple="multiple" data-placeholder="Select colors" style="width: 100%;" name="colors[]">
                             @foreach($colors as $color)
-                                <option value="{{ $color->id }}" {{ is_array(old('colors')) && in_array($color->id, old('colors'), false) ? ' selected' : '' }}>{{ $color->title }}</option>
+                                <option value="{{ $color->id }}" {{ $product->colors && $product->colors->pluck('id')->contains($color->id) ? ' selected' : '' }}>{{ $color->title }}</option>
                             @endforeach
                         </select>
                     </div>
