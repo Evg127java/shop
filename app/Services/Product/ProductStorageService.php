@@ -85,4 +85,23 @@ class ProductStorageService implements ProductProcessInterface
         }
         return $product;
     }
+
+    public function delete(Product $product)
+    {
+        try {
+            Db::beginTransaction();
+
+            $product->tags()->detach();
+            $product->colors()->detach();
+            if (isset ($product->preview_image)) {
+                Storage::disk('public')->delete($product->preview_image);
+            }
+            $product->delete();
+
+            Db::commit();
+        } catch (\Exception $e) {
+            Db::rollBack();
+            abort(500);
+        }
+    }
 }

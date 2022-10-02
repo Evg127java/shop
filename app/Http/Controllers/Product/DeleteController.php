@@ -5,13 +5,11 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 
-class DeleteController extends Controller
+class DeleteController extends BaseController
 {
     public function __invoke(Product $product)
     {
-        $product->tags()->detach();
-        $product->colors()->detach();
-        $product->delete();
+        $this->service->delete($product);
         return redirect()->route('product.index');
     }
 }
