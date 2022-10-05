@@ -52,10 +52,12 @@
                             <td class="align-middle">{{ $product->content }}</td>
 
                             <td class="align-middle">
+                                @if($product->preview_image)
                                 <a href="{{ Storage::url($product->preview_image) }}">
                                     <img src="{{ Storage::url($product->preview_image) }}" alt="image"
                                          style="width: 64px;">
                                 </a>
+                                @endif
                             </td>
 
                             <td class="align-middle">{{ $product->price }}</td>

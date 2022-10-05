@@ -64,6 +64,9 @@
                                 <option value="{{ $color->id }}" {{ is_array(old('colors')) && in_array($color->id, old('colors'), false) ? ' selected' : '' }}>{{ $color->title }}</option>
                             @endforeach
                         </select>
+                        @error('colors')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="form-group">
@@ -80,16 +83,62 @@
                     </div>
 
                     <div class="form-group">
+                        <select class="form-control select2" name="group_id" style="width: 100%;">
+                            <option selected disabled>Select group</option>
+                            @foreach($groups as $group)
+                                <option
+                                    value="{{ $group->id }}" {{ old('group_id') == $group->id ? ' selected' : '' }}>{{ $group->title }}</option>
+                            @endforeach
+                        </select>
+                        @error('group_id')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image_preview">Image preview</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input name="preview_image" type="file" class="custom-file-input" id="exampleInputFile">
+                                <input name="preview_image" type="file" class="custom-file-input" id="image_preview">
                                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
                             </div>
                         </div>
                         @error('preview_image')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <label>Product images:</label>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="product_images[1]" type="file" class="custom-file-input" id="product_image">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                        </div>
+                        @error('product_images')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="product_images[2]" type="file" class="custom-file-input" id="product_image">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                        </div>
+                        @error('product_images')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="product_images[3]" type="file" class="custom-file-input" id="product_image">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                        </div>
+                        @error('product_images')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

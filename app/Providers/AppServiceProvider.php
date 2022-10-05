@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Services\Product\ProductProcessInterface;
-use App\Services\Product\ProductStorageService;
+use App\Services\Product\ProductServiceInterface;
+use App\Services\Product\ProductService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,8 +16,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            ProductProcessInterface::class,
-            ProductStorageService::class
+            ProductServiceInterface::class,
+            ProductService::class
         );
     }
 

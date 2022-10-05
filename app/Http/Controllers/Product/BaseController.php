@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Product;
 
-use App\Services\Product\ProductProcessInterface;
+use App\Services\Product\ProductServiceInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -12,12 +12,12 @@ class BaseController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public ProductProcessInterface $service;
+    public ProductServiceInterface $service;
 
     /**
-     * @param ProductProcessInterface $service
+     * @param ProductServiceInterface $service
      */
-    public function __construct(ProductProcessInterface $service)
+    public function __construct(ProductServiceInterface $service)
     {
         $this->service = $service;
     }

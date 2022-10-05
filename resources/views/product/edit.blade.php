@@ -80,7 +80,21 @@
                         @enderror
                     </div>
 
-                    @if(!is_null($product->preview_image))
+                    <div class="form-group">
+                        <select class="form-control select2" name="group_id" style="width: 100%;">
+                            <option selected disabled>Select group</option>
+                            @foreach($groups as $group)
+                                <option
+                                    value="{{ $group->id }}" {{ $product->group_id == $group->id ? ' selected' : '' }}>{{ $group->title }}</option>
+                            @endforeach
+                        </select>
+                        @error('group_id')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
+                    @if($product->preview_image)
                         <div class="w-25" >
                             <img src="{{ Storage::url($product->preview_image) }}" alt="image" style="width: 128px;">
                         </div>
@@ -97,6 +111,25 @@
                         @enderror
                     </div>
 
+                    <label>Product images:</label>
+                    @for($i = 1; $i <= 3; $i++)
+                        @if($image = $images->firstWhere('image_id', $i))
+                            <div class="w-25" >
+                                <img src="{{ Storage::url($image->image_url) }}" alt="image" style="width: 128px;">
+                            </div>
+                        @endif
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input name="product_images[{{ $i }}]" type="file" class="custom-file-input">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                            </div>
+                            @error("product_images")
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                    @endfor
+                    </div>
                     <div class="form-group">
                         <input type="number" class="form-control" name="price" placeholder="price" value="{{ $product->price }}">
                         @error('price')
