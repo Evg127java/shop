@@ -38,7 +38,7 @@ abstract class AbstractFilter implements FilterInterface
 
     protected function getQueryParam($key)
     {
-        return $this->queryParams[$key];
+        return $this->queryParams[$key] ?? null;
     }
 
     /**
